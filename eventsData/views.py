@@ -6,7 +6,7 @@
 #pylint: disable=trailing-whitespace
 #pylint: disable=lines-too-long
 
-
+import jwt
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from .models import User, Vacations
@@ -96,7 +96,7 @@ def tripdetails(request, tripID):
         'trip2show' : Vacations.objects.get(id= tripID)
 
     }
-    return render(request, "events.html", context)
+    return render(request, "eventinfo.html", context)
 
 def JoinTrip(request, tripID):
     loggedInUser = User.objects.get(id=request.session['loggedInId'])
