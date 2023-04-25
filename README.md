@@ -1,4 +1,4 @@
-# travelApp
+# MyEvents
 
 How to run the Application
 
