@@ -6,7 +6,6 @@
 #pylint: disable=trailing-whitespace
 #pylint: disable=lines-too-long
 
-import jwt
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from .models import User, Vacations
