@@ -6,7 +6,7 @@ mysqlclient==1.4.6
 oauthlib==2.0.1
 Pillow==2.0.0
 ply==3.4
-PyYAML==3.10.2
-urlgrabber==3.10
+PyYAML==3.10
+urlgrabber==3.10.2
 urllib3==1.25.9
 
