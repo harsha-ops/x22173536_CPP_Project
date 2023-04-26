@@ -1,8 +1,7 @@
 asgiref==3.6.0
 Django==2.1.5
+sqlparse==0.4.3
 tzdata==2023.3
-oauthlib==2.0.1
-Pillow==2.0.0
-urllib3==1.25.9
+
 
 
