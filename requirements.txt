@@ -1,7 +1,6 @@
 asgiref==3.6.0
 Django==2.1.5
 tzdata==2023.3
-gcc==7.3
 mysql==0.0.3
 mysqlclient==1.4.6
 oauthlib==2.0.1
