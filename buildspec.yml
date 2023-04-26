@@ -7,7 +7,7 @@ phases:
             - pip install --upgrade pip
             # Install dependencies needed for running the static analysis
             - sudo yum install gcc -y
-            - sudo yum install libmysqlclient-dev
+            - sudo yum install mysql
             - pip install mysqlclient
             - pip install -r requirements.txt
     pre_build:
