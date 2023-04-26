@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'events.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'newdb_py',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'x22173536-cpp-project.c6vtzfrggjdy.us-west-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
