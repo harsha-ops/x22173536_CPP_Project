@@ -6,7 +6,7 @@ phases:
         commands:
             - pip install --upgrade pip
             # Install dependencies needed for running the static analysis
-            - sudo yum install mysql-devel
+            - sudo yum install mysql-devel -y
             - pip install -r requirements.txt
     pre_build:
         commands:
