@@ -238,7 +238,7 @@ td{
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="/about">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Help</a>
@@ -264,6 +264,7 @@ td{
           <th>Starting Date of Event</th>
           <th>Closing Date of Event</th>
           <th>Plans for Event</th>
+          <th>Ticket Number</th>
         </tr>
         {% for x in YourEvents %}
         <tr>
@@ -271,6 +272,7 @@ td{
           <td>{{x.EventStart}}</td>
           <td>{{x.EventEnd}}</td>
           <td>{{x.Plan}}</td>
+          <td>{{x.ticket}}</td>
           <td><a href="/cancel/{{x.id}}"><button class="btn btn-primary btn-med2">Cancel</button></a></td>
         </tr>
        {% endfor %}

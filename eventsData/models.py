@@ -61,6 +61,7 @@ class Vacations(models.Model):
     Plan = models.TextField()
     Traveler = models.ForeignKey(User, related_name= "PlacesToVisit", on_delete = models.CASCADE)
     PossibleTrips = models.ManyToManyField(User, related_name= "possible_places")
+    ticket = models.CharField(max_length=255) # Add this line to include the ticket field
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = VacationsManager()

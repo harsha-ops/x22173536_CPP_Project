@@ -14,6 +14,7 @@ urlpatterns = [
     path("cancel/<tripID>", views.cancel),
     path('signup/', views.signup, name='signup'),
     path('signin/', views.signin, name='signin'),
-    path('index/', views.index, name='index')
+    path('index/', views.index, name='index'),
+    path('aboutus/', views.aboutus, name='aboutus'),
+    path('about/', views.about, name='about')
 ]
- 

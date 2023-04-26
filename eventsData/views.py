@@ -1,15 +1,9 @@
-# pylint: disable=invalid-name
-# pylint: disable=missing-function-docstring
-# pylint: disable=unused-variable
-# pylint: disable=unused-import
-# pylint: disable=bad-whitespace
-#pylint: disable=trailing-whitespace
-#pylint: disable=lines-too-long
-
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from .models import User, Vacations
 from django.contrib import auth
+from ticketlib.ticket import generate_ticket
+
 # Create your views here.
 def index(request):
     return render(request, "index.html")
@@ -55,20 +49,44 @@ def login(request):
     
 
 
-def events(request):
+#def events(request):
     loggedInUser = User.objects.get(id=request.session['loggedInId'])
+    ticket_number = generate_ticket()
     if 'loggedInId' not in request.session:
         messages.error(request, "Log in to view Page.")
         return redirect("/")
 
     
+    
+    
 
     context = {
+        'ticket_number': ticket_number,
         'loggedInId': loggedInUser,
         'allVacations': Vacations.objects.all(),
         'YourEvents': Vacations.objects.filter(PossibleTrips = loggedInUser),
         'otherEvents': Vacations.objects.exclude(PossibleTrips = loggedInUser)
 
+    }
+    return render(request, "events.html", context)
+
+def events(request):
+    if 'loggedInId' not in request.session:
+        messages.error(request, "Log in to view Page.")
+        return redirect("/")
+    
+    loggedInUser = User.objects.get(id=request.session['loggedInId'])
+    YourEvents = Vacations.objects.filter(PossibleTrips=loggedInUser)
+    for event in YourEvents:
+        if not event.ticket:
+            event.ticket = generate_ticket()
+            event.save()
+
+    context = {
+        'loggedInId': loggedInUser,
+        'allVacations': Vacations.objects.all(),
+        'YourEvents': YourEvents,
+        'otherEvents': Vacations.objects.exclude(PossibleTrips=loggedInUser)
     }
     return render(request, "events.html", context)
 
@@ -120,3 +138,10 @@ def signin(request):
 
 def signout(request):
     return render(request,'index.html')
+
+def aboutus(request):
+    return render(request,'aboutus.html')
+
+def about(request):
+    return render(request,'about.html')
+
